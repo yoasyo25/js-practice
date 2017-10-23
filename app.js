@@ -19,9 +19,8 @@ function sumAll(arr) {
 
 /* Compare two arrays and return a new array with any items only found in one
 of the two given arrays, but not both.
+[1, 2, 3, 5], [1, 2, 3, 4, 5] should return [4]
 */
-
-// [1, 2, 3, 5], [1, 2, 3, 4, 5] should return [4]
 
 function diffArray(arr1, arr2) {
   var newArr = [];
@@ -47,4 +46,19 @@ function diffOfArray(arr1, arr2) {
     }
   }
   return newArr.filter(checkElement);
+}
+
+/* Return the provided string with the first letter of each word capitalized.
+Make sure the rest of the word is in lower case. */
+
+// I'm a little tea pot
+
+function titleCase(str) {
+  var arr = str.toLowerCase().split(" ");
+  var newArr = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    newArr.push(arr[i].charAt(0).toUpperCase() + arr[i].substr(1));
+  }
+  return newArr.join(" ");
 }
