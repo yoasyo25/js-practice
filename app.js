@@ -51,8 +51,6 @@ function diffOfArray(arr1, arr2) {
 /* Return the provided string with the first letter of each word capitalized.
 Make sure the rest of the word is in lower case. */
 
-// I'm a little tea pot
-
 function titleCase(str) {
   var arr = str.toLowerCase().split(" ");
   var newArr = [];
@@ -62,3 +60,16 @@ function titleCase(str) {
   }
   return newArr.join(" ");
 }
+
+
+/* Return an array consisting of the largest number from each provided
+sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.
+*/
+
+ function largestOfFour(arr) {
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+      newArr.push(Math.max.apply(null, arr[i]));
+    }
+   return newArr;
+ }
