@@ -17,6 +17,13 @@ function sumAll(arr) {
   return sum;
 }
 
+function sumArr(arr) {
+    total = 0;
+    while(arr.length > 0) {
+      total += arr.pop();
+    }
+    return total;
+}
 
 /* Write a range function that takes two arguments, start and end,
 and returns an array containing all the numbers from start up to
@@ -31,6 +38,33 @@ function range(start, end) {
     }
     return result;
 };
+
+
+
+/* reverseArray, takes an array as argument and produces a
+new array that has the same elements in the inverse order. */
+
+
+function reverseArray(arr) {
+    newArr = [];
+    for (var i = arr.length - 1; i >= 0; i--) {
+        newArr.push(arr[i]);
+    }
+    return newArr;
+};
+
+/* modifies the array given as argument in order to reverse
+its elements */
+
+function reverseArrayInPlace(arr) {
+    var lent = arr.length;
+    for (var i = arr.length - 1; i >= 0; i--) {
+        arr.push(arr[i]);
+    }
+    arr = arr.slice(lent);
+    return arr;
+};
+
 
 
 /* Compare two arrays and return a new array with any items only found in one
