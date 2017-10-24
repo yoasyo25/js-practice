@@ -198,7 +198,7 @@ function bouncer(arr) {
   return newArr;
 }
 
-function bounderTwo(arr) {
+function bouncerTwo(arr) {
   var results = [];
 
   for (var i = 0; i < arr.length; i++) {
@@ -207,4 +207,39 @@ function bounderTwo(arr) {
     }
   }
   return results;
+}
+
+function boucerThree(arr) {
+  return arr.filter(function(value) {
+    return value;
+  });
+}
+
+
+/* You will be provided with an initial array (the first argument in the
+destroyer function), followed by one or more arguments. Remove all elements
+from the initial array that are of the same value as these arguments. */
+
+
+function destroyer(arr) {
+  var newArr = [];
+  var argumentsArr = Array.prototype.slice.call(arguments);
+  var targets = argumentsArr.slice(1);
+
+  for (var i = 0; i < arr.length; i++) {
+    if (targets.indexOf(arr[i]) === -1) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+
+
+function destroyerTwo(arr) {
+  var argumentsArr = Array.prototype.slice.call(arguments);
+
+  var newArr = arr.filter(function(value) {
+    return argumentsArr.indexOf(value) === -1;
+  })
+  return newArr;
 }
