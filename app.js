@@ -240,6 +240,21 @@ function destroyerTwo(arr) {
 
   var newArr = arr.filter(function(value) {
     return argumentsArr.indexOf(value) === -1;
-  })
+  });
   return newArr;
+}
+
+
+/* Return the lowest index at which a value (second argument) should be
+inserted into an array (first argument) once it has been sorted. The returned
+value should be a number. getIndexToIns([40, 60], 50) returns 1*/
+
+
+
+function getIndexToIns(arr, num) {
+  var newArr = arr.concat(num);
+  var sorted = newArr.sort(function(a,b) {
+    return a - b;
+  });
+  return sorted.indexOf(num);
 }
