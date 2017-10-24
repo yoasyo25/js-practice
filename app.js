@@ -258,3 +258,27 @@ function getIndexToIns(arr, num) {
   });
   return sorted.indexOf(num);
 }
+
+/* Write a function which takes a ROT13 encoded string as input and returns a
+decoded string. */
+
+function rot13(str) {
+  var arr = [];
+  var result = "";
+
+  for (var i = 0; i < str.length; i++) {
+    arr = arr.concat(str.charCodeAt(i));
+  }
+
+  for (var i = 0; i < str.length; i++) {
+    if (arr[i] <= 64 || arr[i] >= 91) {
+      arr[i];
+    } else if (arr[i] >= 78) {
+      arr[i] -= 13;
+    } else {
+      var subtract = (90 - arr[i]) - 13;
+      arr[i] = 90 - subtract;
+    }
+  }
+  return result.concat(String.fromCharCode.apply(null, arr));
+}
