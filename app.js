@@ -61,7 +61,6 @@ function titleCase(str) {
   return newArr.join(" ");
 }
 
-
 /* Return an array consisting of the largest number from each provided
 sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.
 */
@@ -73,3 +72,18 @@ sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.
     }
    return newArr;
  }
+
+/* Check if a string (first argument, str) ends with the given target string
+(second argument, target).
+*/
+
+function confirmEnding(str, target) {
+  var formattedString = str.replace(/\s/g,'');
+  var slicedString = formattedString.slice(formattedString.length - target.length);
+
+  if (slicedString === target) {
+    return true;
+  } else {
+    return false;
+  }
+}
