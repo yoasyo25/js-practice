@@ -17,6 +17,22 @@ function sumAll(arr) {
   return sum;
 }
 
+
+/* Write a range function that takes two arguments, start and end,
+and returns an array containing all the numbers from start up to
+(and including) end. */
+
+function range(start, end) {
+    var result = [start];
+
+    for (var i = start; i < end; i++) {
+        result.push(start + 1);
+        start = result[result.length - 1];
+    }
+    return result;
+};
+
+
 /* Compare two arrays and return a new array with any items only found in one
 of the two given arrays, but not both.
 [1, 2, 3, 5], [1, 2, 3, 4, 5] should return [4]
