@@ -125,3 +125,51 @@ function truncateString(str, num) {
  }
   return result;
 }
+
+/* Write a function that splits an array (first argument) into groups the length
+of size (second argument) and returns them as a two-dimensional array.
+chunkArrayInGroups(["a", "b", "c", "d"], 2)
+should return [["a", "b"], ["c", "d"]]. */
+
+function chunkArrayInGroups(arr, size) {
+  var result = [];
+  for (var i = 0; i < arr.length; i+= size) {
+    result.push(arr.slice(i, i + size));
+  }
+  return result;
+}
+
+
+/* Return the remaining elements of an array after chopping off n elements
+from the head. slasher([1, 2, 3], 2) */
+
+function slasher(arr, howMany) {
+  if (howMany > 0) {
+    return arr.slice(howMany);
+  } else {
+    return arr;
+  }
+}
+/* Return true if the string in the first element of the array contains all of
+the letters of the string in the second element of the array. */
+
+
+function mutation(arr) {
+  var result = [];
+  var filtered = arr.map(function(value) {
+    return value.toLowerCase();
+  });
+
+  for (var i = 0; i < filtered[1].length; i++) {
+    if (filtered[0].indexOf(filtered[1][i]) !== -1) {
+      result.push(true);
+    } else {
+      result.push(false);
+    }
+  }
+  if (result.indexOf(false) !== -1)  {
+    return false;
+  } else {
+    return true;
+  }
+}
