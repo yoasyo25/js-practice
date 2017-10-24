@@ -153,7 +153,6 @@ function slasher(arr, howMany) {
 /* Return true if the string in the first element of the array contains all of
 the letters of the string in the second element of the array. */
 
-
 function mutation(arr) {
   var result = [];
   var filtered = arr.map(function(value) {
@@ -172,4 +171,40 @@ function mutation(arr) {
   } else {
     return true;
   }
+}
+
+function mutationTwo(arr) {
+  var filtered = arr.map(function(value) {
+    return value.toLowerCase();
+  });
+  for (var i = 0; i < filtered[1].length; i++) {
+    var result = filtered[0].indexOf(filtered[1][i]);
+      if (result === -1) {
+        return false;
+      }
+  }
+  return true;
+}
+
+/* Remove all falsy values from an array.
+Falsy values in JavaScript are false, null, 0, "", undefined, and NaN. */
+
+function bouncer(arr) {
+  var newArr = [];
+  newArr = arr.filter(formattedArr);
+  function formattedArr(value) {
+    return Boolean(value);
+  }
+  return newArr;
+}
+
+function bounderTwo(arr) {
+  var results = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i]) {
+      results.push(arr[i]);
+    }
+  }
+  return results;
 }
