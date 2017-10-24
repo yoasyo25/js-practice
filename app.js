@@ -65,6 +65,42 @@ function reverseArrayInPlace(arr) {
     return arr;
 };
 
+// counts how many Bs are in the given string
+function countBs(str, letter) {
+    let count = [];
+
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === letter) {
+            count.push(letter);
+        }
+    }
+    console.log(count.length);
+}
+
+// return the length ofthe longes word inthe provided sentence
+
+function findLongestWord(str) {
+
+    var arr = str.split(" ");
+    var lengths = [];
+    for (var i = 0; i < arr.length; i++) {
+        lengths.push(arr[i].length);
+    }
+    sortedLength = lengths.sort();
+    return sortedLength[sortedLength.length - 1];
+}
+
+// return true if a string is a palindrome
+
+function palindrome(str) {
+    var formattedStr = str.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+
+    if (formattedStr === formattedStr.split("").reverse().join("")) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
 /* Compare two arrays and return a new array with any items only found in one
