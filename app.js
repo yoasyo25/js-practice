@@ -368,3 +368,89 @@ function rot13(str) {
   }
   return result.concat(String.fromCharCode.apply(null, arr));
 }
+
+// Convert the given number into a roman numeral.
+// 2 should return "II"
+function convertToRomanOneToHundred(num) {
+  var result = "";
+  var romanNumbers = {
+    1: "I",
+    2: "II",
+    3: "III",
+    4: "IV",
+    5: "V",
+    6: "VI",
+    7: "VII",
+    8: "VIII",
+    9: "IX",
+    10: "X",
+    20: "XX",
+    30: "XXX",
+    40: "XL",
+    50: "L",
+    60: "LX",
+    70: "LXX",
+    80: "LXXX",
+    90: "XC",
+    100: "C",
+    200: "CC",
+    300: "CCC",
+    400: "CD",
+    500: "D",
+    600: "DD",
+    700: "DDD",
+    800: "DCCC",
+    900: "CM"
+  };
+
+    if (num <= 10) {
+      result = romanNumbers[num];
+    } else if (num > 10 && num <= 20) {
+      result = romanNumbers[10] + romanNumbers[num - 10];
+    } else if (num > 20 && num <= 30) {
+      result = romanNumbers[20] + romanNumbers[num - 20];
+    } else if (num > 30 && num <= 40) {
+      result = romanNumbers[30] + romanNumbers[num - 30];
+    } else if (num > 40 && num <= 50) {
+      result = romanNumbers[40] + romanNumbers[num - 40];
+    } else if (num > 50 && num <= 60) {
+      result = romanNumbers[50] + romanNumbers[num - 50];
+    } else if (num > 60 && num <= 70) {
+      result = romanNumbers[60] + romanNumbers[num - 60];
+    } else if (num > 70 && num <= 80) {
+      result = romanNumbers[70] + romanNumbers[num - 70];
+    } else if (num > 80 && num <= 90) {
+      result = romanNumbers[80] + romanNumbers[num - 80];
+    } else if (num > 90 && num <= 100) {
+      result = romanNumbers[90] + romanNumbers[num - 90];
+    }
+    return result;
+}
+
+function convertToRoman(num) {
+  var romanNum = {
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1
+  };
+
+  var roman = "";
+
+  for (var key in romanNum) {
+    while(num >= romanNum[key]) {
+      roman += key;
+      num -= romanNum[key];
+    }
+  }
+    return roman;
+}
