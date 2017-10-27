@@ -454,3 +454,174 @@ function convertToRoman(num) {
   }
     return roman;
 }
+/* Check if the predicate (second argument) is truthy on all elements of a
+collection (first argument). */
+
+function truthCheck(collection, pre) {
+  return collection.every(function(eachObj) {
+    return eachObj[pre];
+  })
+}
+
+/* Pig Latin takes the first consonant (or consonant cluster) of an English
+word, moves it to the end of the word and suffixes an "ay"
+If a word begins with a vowel you just add "way" to the end.
+*/
+
+function translatePigLatin(str) {
+
+  var result = "";
+  var counter = 0;
+
+  if (['a', 'e', 'i', 'o', 'u'].indexOf(str[0].toLowerCase()) !== -1) {
+    result = str.toLowerCase().concat("way");
+  } else {
+    while(['a', 'e', 'i', 'o', 'u'].indexOf(str.toLowerCase()) === -1 && counter < str.length) {
+      result += str[counter];
+      counter++;
+    }
+  }
+  return result;
+}
+
+/* Perform a search and replace on the sentence using the arguments provided and
+return the new sentence.
+First argument is the sentence to perform the search and replace on.
+Second argument is the word that you will be replacing (before).
+Third argument is what you will be replacing the second argument with (after).
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+*/
+
+
+function myReplace(str, before, after) {
+  var isCapital = before[0] === before[0].toUpperCase();
+  var arr = str.split(" ");
+
+ for(var i = 0; i < arr.length; i++) {
+   if (arr[i] === before && isCapital) {
+     arr[i] = after[0].toUpperCase() + after.slice(1);
+   } else if (arr[i] === before && isCapital !== true) {
+     arr[i] = after;
+   }
+ }
+  return arr.join(" ");
+}
+
+function myReplaceTwo(str, before, after) {
+
+  if(before.charAt(0) === before.charAt(0).toUpperCase()) {
+    after = after.charAt(0).toUpperCase + after.slice(1);
+  }
+
+  return str.replace(before, after);
+}
+
+
+/* Given a positive integer num, return the sum of all odd Fibonacci numbers
+that are less than or equal to num.*/
+
+function sumFibs(num) {
+  var findFib = [1,1];
+
+  for (var i = 0; i < num; i++) {
+    findFib.push(findFib[i] + findFib[i + 1]);
+  }
+
+  var notBiggerThanNum = findFib.filter(function(value) {
+    return value <= num && value % 2 !== 0;
+  });
+
+ return notBiggerThanNum.reduce(function(sum, value) {
+  return sum + value;}, 0);
+}
+
+
+/* Sum all the prime numbers up to and including the provided number. */
+
+
+
+function sumPrimes(num) {
+  var primes = [];
+  for (var i = 2; i < num; i++) {
+    if (isPrimeNumber(i)) {
+      primes.push(i)
+    }
+  }
+
+
+  function isPrimeNumber(num) {
+    for (var j = 2; j < num; j++) {
+      if (num % j === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+
+  return primes;
+}
+
+/* Make a function that looks through an array of objects (first argument) and
+returns an array of all objects that have matching property and value pairs
+(second argument). Each property and value pair of the source object has to be
+present in the object from the collection if it is to be included in the
+returned array.
+whatIsInAName([{ "a": 1 }, { "a": 1 }, { "a": 1, "b": 2 }], { "a": 1 })
+should return [{ "a": 1 }, { "a": 1 }, { "a": 1, "b": 2 }] */
+
+
+function whatIsInAName(collection, source) {
+  debugger
+  var arr = collection.filter(function(value) {
+    for (var i in source) {
+      if (source[i] !== value[i]) {
+        return false;
+      }
+    }
+    return true;
+  });
+
+  return arr;
+}
+
+
+/* Sum all the prime numbers up to and including the provided number.
+A prime number is defined as a number greater than one and having only two
+divisors, one and itself. For example, 2 is a prime number because it's only
+divisible by one and two. sumPrimes(10) should return 17. */
+
+// function sumPrimes(num) {
+//
+// var primes = 0;
+//
+// for (var i = 2; i < num; i++) {
+//   if (num % i === 0) {
+//     primes;
+//   } else {
+//     primes += num;
+//   }
+// }
+//   return primes;
+// }
+
+
+
+/*Find the missing letter in the passed letter range and return it.
+If all letters are present in the range, return undefined.
+("abce") should return "d"*/
+
+
+function fearNotLetter(str) {
+  var stringChars = [];
+  for (var j = 0; j < str.length; j++) {
+    stringChars.push(str.charCodeAt((j)));
+  }
+
+  for (var i = 0; i < stringChars.length; i++) {
+    if (stringChars[i + 1] - stringChars[i] > 1) {
+      return String.fromCharCode(stringChars[i] + 1);
+    }
+  }
+  return undefined;
+}
