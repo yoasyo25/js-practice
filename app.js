@@ -635,6 +635,48 @@ function pairElement(str) {
 }
 
 
+function pairElement(str) {
+  var dnaPairs = { "A": "T", "C": "G", "T": "A", "G": "C" };
+
+  var arr = str.split("").map(function(key) {
+    return [key, dnaPairs[key]];
+  });
+
+  return arr;
+}
+
+// Check if a value is classified as a boolean primitive. Return true or false.
+
+function booWho(bool) {
+  if (bool === true || bool === false) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function booWhoTwo(bool) {
+  return bool === true || bool === false;
+}
+
+
+/* Write a function that takes two or more arrays and returns a new array of
+unique values in the order of the original provided arrays. In other words,
+all values present from all arrays should be included in their original order,
+but with no duplicates in the final array.*/
+
+function uniteUnique(arr) {
+  var args = Array.prototype.slice.call(arguments);
+  var mergedArgs = [];
+
+  for (var i = 0; i < args.length; i++) {
+      mergedArgs = mergedArgs.concat(args[i]);
+  }
+
+   return mergedArgs.filter(function(num, index) {
+     return mergedArgs.indexOf(num) == index;
+   });
+}
 
 
 /* Sum all the prime numbers up to and including the provided number.
