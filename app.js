@@ -572,7 +572,6 @@ should return [{ "a": 1 }, { "a": 1 }, { "a": 1, "b": 2 }] */
 
 
 function whatIsInAName(collection, source) {
-  debugger
   var arr = collection.filter(function(value) {
     for (var i in source) {
       if (source[i] !== value[i]) {
@@ -584,6 +583,58 @@ function whatIsInAName(collection, source) {
 
   return arr;
 }
+
+
+// function translatePigLatinTwo(str) {
+//
+//   var result = "";
+//   var consonant = /(?![AEIOU])[A-Z]/;
+//   if (["a", "e", "i", "o", "u"].indexOf(str.charAt(0)) > -1) {
+//     result = str.concat("way");
+//   } else {
+//     for (var i = 0; i < str.length; i++) {
+//
+//     }
+//   }
+//   return result;
+// }
+
+
+
+/* The DNA strand is missing the pairing element. Take each character, get its
+pair, and return the results as a 2d array.
+Return the provided character as the first element in each array.
+
+For example, for the input GCG, return [["G", "C"], ["C","G"],["G", "C"]]
+AT
+CG
+TA
+GC
+ */
+
+function pairElement(str) {
+  var firstPairs = str.split("");
+  var secondPairs = [];
+  var finalPairs = [];
+  var dnaPairs = {
+    "A": "T",
+    "C": "G",
+    "T": "A",
+    "G": "C",
+  };
+
+  for (var i = 0; i < str.length; i++) {
+    secondPairs.push(dnaPairs[firstPairs[i]]);
+  }
+
+  for (var j = 0; j < str.length; j++) {
+    finalPairs.push([firstPairs[j], secondPairs[j]]);
+  }
+
+  return finalPairs;
+}
+
+
 
 
 /* Sum all the prime numbers up to and including the provided number.
